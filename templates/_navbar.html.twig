@@ -1,0 +1,38 @@
+<div class="sidebar-menu">
+    <div class="sidebar-header">
+        <div class="logo">
+            <a href="index.html"><img src="{{  asset('assets/images/icon/logo.png') }}" alt="logo"></a>
+        </div>
+    </div>
+    <div class="main-menu">
+        <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 555px;"><div class="menu-inner" style="overflow: hidden; width: auto; height: 555px;">
+                <nav>
+                    <ul class="metismenu" id="menu">
+                        <li>
+                            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>Orders</span></a>
+                            <ul class="collapse">
+                                <li><a href="{{ path('admin_order') }}">All</a></li>
+                                <li><a href="{{ path('admin_order_add') }}">Add</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>Product</span></a>
+                            <ul class="collapse">
+                                <li><a href="{{ path('admin_product') }}">All</a></li>
+                                <li><a href="{{ path('admin_product_add') }}">Add</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>Templates</span></a>
+                            <ul class="collapse">
+                                <li><a href="{{ path('admin_template') }}">All</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ path('admin_status') }}"><i class="ti-map-alt"></i> <span>Status</span></a></li>
+
+                    </ul>
+                </nav>
+            </div><div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px; height: 252.894px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
+    </div>
+</div>

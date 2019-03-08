@@ -1,0 +1,73 @@
+server {
+        listen                  80;
+        listen                  [::]:80;
+        server_name             [104.248.248.211];
+
+        root                    /var/www/project_name/public;
+        index                   index.php;
+
+        access_log              /var/log/nginx/project_name.access.log;
+        error_log               /var/log/nginx/project_name.error.log;
+
+        rewrite_log             on;
+        client_max_body_size    10M;
+
+        location / {
+            if ($http_user_agent ~* Jorgee) {
+                return 403;
+            }
+            try_files $uri /index.php$is_args$args;
+        }
+
+        location ~ ^/index\.php(/|$) {
+            include       fastcgi_params;
+#            fastcgi_pass  127.0.0.1:9000; # TCP
+            fastcgi_pass  unix:/run/php/php7.2-fpm.sock; # Unix socket
+            fastcgi_split_path_info ^(.+\.php)(/.*)$;
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            fastcgi_param DOCUMENT_ROOT $realpath_root;
+            internal;
+        }
+        
+        # return 404 for all other php files not matching the front controller
+        # this prevents access to other php files you don't want to be accessible.
+        location ~ \.php$ {
+            return 404;
+        }
+
+        location = /favicon.png {
+            allow           all;
+            access_log      off;
+            log_not_found   off;
+        }
+
+        location = /robots.txt {
+            allow           all;
+            log_not_found   off;
+            access_log      off;
+        }
+        
+        # Media: images, icons, video, audio, HTC
+        location ~* \.(?:jpg|jpeg|gif|png|ico|cur|gz|svg|mp4|ogg|ogv|webm|htc)$ {
+            access_log off;
+            expires max;
+        }
+
+        # CSS and Javascript
+        location ~* \.(?:css|js)$ {
+            access_log off;
+            expires max;
+        }
+
+        location ~ /\. {
+            deny            all;
+            access_log      off;
+            log_not_found   off;
+        }
+
+        location ~ ~$ {
+            deny            all;
+            access_log      off;
+            log_not_found   off;
+        }
+}

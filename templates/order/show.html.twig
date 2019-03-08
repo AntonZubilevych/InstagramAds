@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+    <div class="main-content-inner">
+
+
+    <div class="row">
+        <div class="col-lg-12 mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <div class="invoice-area">
+                        <div class="invoice-head">
+                            <div class="row">
+                                <div class="iv-left col-6">
+                                    <span>ORDER</span>
+                                </div>
+                                <div class="iv-right col-6 text-md-right">
+                                    <span>#{{ order.id }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <div class="invoice-address">
+                                    <h3>Customer</h3>
+                                    <h5>{{ order.client.name }}</h5>
+                                    <p>{{ order.client.phone }}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 text-md-right">
+                                <ul class="invoice-date">
+                                    <li>Start Date : {{ order.createdAt  | date("m/d/Y") }}</li>
+                                    <li>Last Activity : {{ order.updatedAt  | date("m/d/Y") }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="invoice-table table-responsive mt-5">
+                            <table class="table table-bordered table-hover text-right">
+                                <thead>
+                                <tr class="text-capitalize">
+                                    <th class="text-center" style="width: 5%;">id</th>
+                                    <th class="text-left" style="width: 45%; min-width: 130px;">description</th>
+                                    <th>qty</th>
+                                    <th>status</th>
+                                    <th style="min-width: 100px">Unit Cost</th>
+                                    <th>total</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="text-center">{{ order.product.id }}</td>
+                                    <td class="text-left">{{ order.product.name }}</td>
+                                    <td>{{ order.amount }}</td>
+                                    <td>{{ order.status.name }}</td>
+                                    <td>{{ order.product.price }}<small>grn</small></td>
+                                    <td>{{ order.sum }}<small>grn</small></td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="4">total balance :</td>
+                                    <td>{{ order.sum }}<small>grn</small></td>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="invoice-buttons text-right">
+                        <a href="{{ path('admin_order_edit',{'id' : order.id}) }}" class="invoice-btn">Edit Order</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

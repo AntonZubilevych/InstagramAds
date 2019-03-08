@@ -1,0 +1,98 @@
+index:
+    path: /
+    controller: App\Controller\SiteController::index
+app_login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+app_register:
+    path: /register
+    controller: App\Controller\RegistrationController::register
+logout:
+    path: /logout
+app_product:
+    path: /product/{id}
+    controller: App\Controller\TemplateController::show
+admin_index:
+    path: /admin/index
+    controller: App\Controller\Admin\AdminController::index
+admin_product:
+    path: /admin/product
+    controller: App\Controller\Admin\ProductController::index
+admin_product_add:
+    path: /admin/products/add
+    controller: App\Controller\Admin\ProductController::add
+admin_product_edit:
+    path: /admin/products/edit/{id}
+    controller: App\Controller\Admin\ProductController::edit
+admin_product_delete:
+    path: /admin/products/delete/{id}
+    controller: App\Controller\Admin\ProductController::delete
+    methods: [DELETE]
+admin_status:
+    path: /admin/status
+    controller: App\Controller\Admin\StatusController::index
+admin_status_add:
+    path: /admin/status/add
+    controller: App\Controller\Admin\StatusController::new
+admin_status_edit:
+    path: /admin/status/edit/{id}
+    controller: App\Controller\Admin\StatusController::edit
+admin_status_delete:
+    path: /admin/status/delete/{id}
+    controller: App\Controller\Admin\StatusController::delete
+    methods: [DELETE]
+admin_order:
+    path: /admin/order
+    controller: App\Controller\Admin\OrderController::index
+admin_order_add:
+    path: /admin/order/add
+    controller: App\Controller\Admin\OrderController::add
+admin_order_edit:
+    path: /admin/order/edit/{id}
+    controller: App\Controller\Admin\OrderController::edit
+admin_order_delete:
+    path: /admin/order/delete/{id}
+    controller: App\Controller\Admin\OrderController::delete
+    methods: [DELETE]
+admin_order_show:
+    path: /admin/order/show/{id}
+    controller: App\Controller\Admin\OrderController::show
+admin_template:
+    path: /admin/template
+    controller: App\Controller\Admin\TemplateController::index
+admin_template_add:
+    path: /admin/template/add/{id}
+    controller: App\Controller\Admin\TemplateController::add
+admin_template_edit:
+    path: /admin/template/edit/{id}
+    controller: App\Controller\Admin\TemplateController::edit
+admin_template_delete:
+    path: /admin/template/delete/{id}
+    controller: App\Controller\Admin\TemplateController::delete
+    methods: [DELETE]
+admin_template_settings:
+    path: /admin/template/setting/{id}
+    controller: App\Controller\Admin\TemplateController::more
+admin_template_description_add:
+    path: /admin/template/description/add/{id}
+    controller: App\Controller\Admin\DescriptionController::new
+admin_template_description_delete:
+    path: /admin/template/description/delete/{id}
+    controller: App\Controller\Admin\DescriptionController::delete
+    methods: [DELETE]
+admin_template_comment_add:
+    path: /admin/template/comment/add/{id}
+    controller: App\Controller\Admin\CommentController::new
+admin_template_comment_delete:
+    path: /admin/template/comment/delete/{id}
+    controller: App\Controller\Admin\CommentController::delete
+    methods: [DELETE]
+admin_template_info_add:
+    path: /admin/template/info/add/{id}
+    controller: App\Controller\Admin\InfoController::new
+admin_template_info_delete:
+    path: /admin/template/info/delete/{id}
+    controller: App\Controller\Admin\InfoController::delete
+    methods: [DELETE]
+
+

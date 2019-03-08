@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+    <html lang="ua">
+    <head>
+
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><!-- End Required meta tags -->
+            <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32" />
+            <link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16" />
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+    <div class="page-container">
+
+
+
+        {% include '_navbar.html.twig' %}
+        <div class="main-content" style="min-height: 510px;">
+            {% include '_header.html.twig' %}
+            <br>
+            <br>
+        {% block body %}
+
+        {% endblock %}
+        {% include '_footer.html.twig' %}
+        </div>
+    </div>
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+    </body>
+</html>
+
+
+

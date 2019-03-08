@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TemplatesDescription{% endblock %}
+
+{% block body %}
+    <h1>TemplatesDescription</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ templates_description.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ templates_description.title }}</td>
+            </tr>
+            <tr>
+                <th>Text</th>
+                <td>{{ templates_description.text }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('templates_description_index') }}">back to list</a>
+
+    <a href="{{ path('templates_description_edit', {'id': templates_description.id}) }}">edit</a>
+
+    {{ include('templates_description/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Status index{% endblock %}
+
+{% block body %}
+    <div class="main-content-inner">
+        <div class="row">
+
+            <div class="col-lg-8 mt-7">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="header-title">Statuses <a href="{{ path('admin_status_add') }}"><i class="fa fa-plus-circle"></i></a> </h4>
+                        <div class="single-table">
+                            <div class="table-responsive">
+                                <table class="table text-center">
+                                    <thead class="text-uppercase bg-success">
+                                    <tr class="text-white">
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">-</th>
+                                        <th scope="col">-</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for status in statuses %}
+                                        <tr>
+                                            <td>{{ status.id }}</td>
+                                            <td>{{ status.name }}</td>
+                                            <td>
+                                                <a class="btn badge-light" href="{{ path('admin_status_edit', {'id': status.id}) }}"><i class="fa fa-external-link"></i></a>
+                                            </td>
+                                            <td>{{  include('status/_delete_form.html.twig' , { 'id': status.id }) }}</td>
+                                        </tr>
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="3">no records found</td>
+                                        </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- table success end -->
+            <!-- table info start -->
+
+        </div>
+    </div>
+{% endblock %}
+

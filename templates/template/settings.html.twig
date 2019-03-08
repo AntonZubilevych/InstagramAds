@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Template Settings{% endblock %}
+
+{% block body %}
+    <div class="main-content-inner">
+        <div class="row">
+
+            <div class="col-lg-8 mt-7">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="header-title">Descriptions <a href="{{ path('admin_template_description_add',{'id' : id}) }}" ><i class="fa fa-plus-circle"></i></a></h4>
+                        <div class="single-table">
+                            <div class="table-responsive">
+                                <table class="table text-center">
+                                    <thead class="text-uppercase bg-success">
+                                    <tr class="text-white">
+                                        <th scope="col">Title</th>
+                                        <th scope="col">Text</th>
+                                        <th scope="col">-</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for description in descriptions %}
+                                    <tr>
+                                        <td>{{description.title}} </td>
+                                        <td>{{description.text |truncate}}</td>
+                                        <td>{{ include('templates_description/_delete_form.html.twig') }}</td>
+                                    </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8 mt-7">
+                <br><br>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="header-title">Template Comments <a href="{{ path('admin_template_comment_add' , {'id' : id}) }}" ><i class="fa fa-plus-circle"></i></a></h4>
+                        <div class="single-table">
+                            <div class="table-responsive">
+                                <table class="table text-center">
+                                    <thead class="text-uppercase bg-success">
+                                    <tr class="text-white">
+                                        <th scope="col">Text</th>
+                                        <th scope="col">-</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for comment in comments %}
+                                        <tr>
+                                            <th scope="row">{{comment.text | truncate}}</th>
+                                            <td>{{ include('templates_comment/_delete_form.html.twig') }}</td>
+                                        </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8 mt-7">
+                <br><br>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="header-title">Template Info <a href="{{ path('admin_template_info_add' , {'id' : id}) }}" ><i class="fa fa-plus-circle"></i></a></h4>
+                        <div class="single-table">
+                            <div class="table-responsive">
+                                <table class="table text-center">
+                                    <thead class="text-uppercase bg-success">
+                                    <tr class="text-white">
+                                        <th scope="col">Text</th>
+                                        <th scope="col">-</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for info in infos %}
+                                        <tr>
+                                            <th scope="row">{{info.text | truncate}}</th>
+                                            <td>{{ include('info/_delete_form.html.twig') }}</td>
+                                        </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

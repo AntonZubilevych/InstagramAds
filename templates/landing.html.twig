@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="favicon.ico">
+    <!-- Facebook Pixel Code -->
+    {% block pixel %}
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '415028182259601');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+                   src="https://www.facebook.com/tr?id=415028182259601&ev=PageView&noscript=1"
+        /></noscript>
+    <!-- End Facebook Pixel Code -->
+    {% endblock %}
+
+
+
+
+    {% block seotags %}
+        <title>Title</title>
+        <meta name="keywords" content="Маска для снорклинга EASYBREATH, купить Маску для снорклинга EASYBREATH, Маска для снорклинга EASYBREATH отзывы">
+        <meta name="description" content="Маска для снорклинга EASYBREATH со скидкой и быстрой доставкой">
+    {% endblock  %}
+
+    {% block styles %}
+        <link media="all" href="{{ asset('/landing/css/index.css') }}" type="text/css" rel="stylesheet">
+    {% endblock %}
+
+    {% block body %}
+
+    {% endblock %}
+
+    {% block js %}
+        <script type="text/javascript" >
+        $(function(){ // плавный скролл
+            $("a[href^='#']").click(function(){
+                var _href = $(this).attr("href");
+                $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
+                return false;
+            });
+        });
+    </script>
+    {% endblock %}
+
+
+</head>
+</html>

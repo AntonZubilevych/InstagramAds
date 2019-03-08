@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TemplatesComment{% endblock %}
+
+{% block body %}
+    <div class="main-content-inner">
+        <div class="row">
+
+            <div class="offset-lg-2 col-lg-8 mt-7">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="header-title">Template Info</h4>
+                        {{ form_start(form) }}
+                        {{ form_widget(form) }}
+                        {{ form_end(form) }}
+
+                    </div>
+                </div>
+            </div>
+            <!-- table success end -->
+            <!-- table info start -->
+
+        </div>
+    </div>
+{% endblock %}

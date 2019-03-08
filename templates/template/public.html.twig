@@ -1,0 +1,108 @@
+{% extends 'landing.html.twig' %}
+
+{% block pixel %}
+    {{ template.product.pixel | raw }}
+{% endblock %}
+{% block body %}
+    <div class="main-wrap">
+        <h1><b>{{ template.product.name }}</b><br>{{ template.title }}</h1>
+
+        <div class="section block-1" style="background: rgba(0, 0, 0, 0) url({{ asset('uploads/landing/' ~ template.topImg) }}) no-repeat scroll center 0px;!important;background-size: 100%;)">
+            <div class="sale">скидка <br><span>-53%</span></div>
+            <div class="price clearfix">
+                <div class="old">
+                    Старая цена<br>
+                    <s><span class="price_land_s2">{{ template.product.price * 1.53 }}</span> <span class="price_land_curr">грн.</span></s>
+                </div>
+                <div class="new">
+                    Новая цена<br>
+                    <span class="price_land_s1">{{ template.product.price }}</span> <span class="price_land_curr">грн.</span>
+                </div>
+            </div>
+            <a class="button-m scroll" href="#form">Оставить заявку</a>
+        </div>
+
+        <div class="section block-3">
+            <ul>
+                {% for description in template.descriptions %}
+                <li>
+                    <h4>{{ description.title | upper }}</h4>
+                    <p>{{ description.text }}</p>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+
+        <div class="section block4"  style="background: rgba(0, 0, 0, 0) url({{ asset('uploads/landing/' ~ template.topBackground) }}) no-repeat scroll center 0px;!important;background-size: 100%;">
+            <h2><b>{{ template.name }} </b><br>Сделайте себе приятный подарок, который украсит отдых незабываемыми впечатлениями.</h2>
+
+
+            <a class="button-m scroll" href="#form">Оставить заявку</a>
+        </div>
+
+        <div class="section block5">
+            <h2 class="center">Доставка и оплата</h2>
+            <ul>
+                <li><h5>Оставьте заявку</h5>Воспользуйтесь формой заказа и оставьте Ваши имя и телефон</li>
+                <li><h5>Подтвердите заказ</h5>Наш менеджер свяжется с Вами и уточнит адрес доставки</li>
+                <li><h5>Получите товар</h5>Заберите посылку и оплатите заказ при получении</li>
+            </ul>
+        </div>
+
+        <div class="section block6">
+            <h2><b>{{ template.name }}</b><br><span>{{ template.title }}</span></h2>
+            <img  src="{{ asset('uploads/landing/' ~ template.bottomImg) }}" alt="{{ template.title }}  " title="{{ template.title }}">
+            {% for info in template.infos %}
+            <p><b>{{ info.title }}</b></p>
+            <p>{{ info.text|upper }}</p>
+            {% endfor %}
+        </div>
+
+        <div class="section block7" style="background: rgba(0, 0, 0, 0) url({{ asset('uploads/landing/' ~ template.middleBackground) }})  scroll  0px;!important;background-size: 100%;">
+            <h2>Отзывы покупателей</h2>
+            <p>Мы попросили наших покупателей поделиться впечатлениями от заказа</p>
+            <div class="regular slider2">
+                {% for comment in template.comments %}
+                <div style="margin-bottom: 30px;">
+                    <div class="container">
+                        <img src="{{ asset('uploads/landing/' ~ comment.img) }}" alt="Наталия, Харьков" title="Богдан, Харьков">
+                        <p>{{ comment.text }}<br><span class="name">{{ comment.author }}</span></p>
+                    </div>
+                </div>
+                {% endfor %}
+
+        </div>
+        </div>
+
+        <div class="section block9" >
+            <h2><b>{{ template.product.name }}</b></h2>
+            <p class="sale center">Со скидкой 53%</p>
+
+            <div class="section container" style="background: rgba(0, 0, 0, 0) url({{ asset('uploads/landing/' ~ template.bottomBackground) }})  scroll center 0px;!important;background-size: 100%;">
+                <div class="price clearfix" id="form">
+                    <div class="old">
+                        Старая цена:<br>
+                        <s><span class="price_land_s2">{{ template.product.price * 1.53 }}</span> <span class="price_land_curr">грн.</span></s>
+                    </div>
+                    <div class="new">
+                        Новая цена:<br>
+                        <span class="price_land_s1">{{ template.product.price }}</span> <span class="price_land_curr">грн</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <form class="orderformcdn"  method="post" onsubmit="if(this.name.value==''){alert('Введите имя!');return false}if(this.phone.value==''){alert('Введите номер телефона!');return false}return true;">
+                <input name="name" value="" placeholder="Введите Имя и Фамилию">
+                <input name="phone" value="" placeholder="Введите Номер телефона" type="text">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ template.id) }}">
+
+                <button class="button-m">Оставить заявку</button>
+            </form>
+
+
+        </div>
+    </div>
+{% endblock %}
