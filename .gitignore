@@ -1,5 +1,6 @@
 /.idea/
 /vendor/
+/node_modules/
 save.nano
 ###> symfony/framework-bundle ###
 /.env.local
