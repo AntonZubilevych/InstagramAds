@@ -48,8 +48,10 @@ class TemplateBuilder
 
     private function build(Template $template,TemplateDTO $dto):?Template
     {
+
         $template->setTitle($dto->getTitle());
         $template->setMotto($dto->getMotto());
+        $template->setPercent($dto->getPercent());
         $dto->getBottomBackground() ? $template->setBottomBackground($this->uploadImg($dto->getBottomBackground())): false;
         $dto->getFavicon() ? $template->setFavicon($this->uploadImg($dto->getFavicon())): false;
         $dto->getTopImg() ?  $template->setTopImg($this->uploadImg($dto->getTopImg())) : false;

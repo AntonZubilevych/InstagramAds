@@ -10,10 +10,17 @@ namespace App\DTO;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
+
 class TemplateDTO
 {
+
+    /**
+     *
+     * @Assert\NotBlank()
+     */
     private $title;
     /**
+     *
      * @Assert\Image()
      */
     private $favicon;
@@ -39,6 +46,30 @@ class TemplateDTO
      * @Assert\Image()
      */
     private $middleBackground;
+
+    /**
+     *  @Assert\Type(type="integer")
+     * @Assert\NotBlank()
+     */
+    private $percent;
+
+    /**
+     * @return mixed
+     */
+    public function getPercent()
+    {
+        return $this->percent;
+    }
+
+    /**
+     * @param mixed $percent
+     * @return TemplateDTO
+     */
+    public function setPercent($percent)
+    {
+        $this->percent = $percent;
+        return $this;
+    }
 
     private $motto;
 

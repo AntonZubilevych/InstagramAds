@@ -16,6 +16,7 @@ class TemplateType extends AbstractType
         $builder
             ->add('title')
             ->add('motto')
+            ->add('percent')
             ->add('middleBackground' , FileType::class ,
                 ['required' => false]
             )

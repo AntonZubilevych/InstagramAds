@@ -12,6 +12,9 @@ logout:
 app_product:
     path: /product/{id}
     controller: App\Controller\TemplateController::show
+app_success:
+    path: /success
+    controller: App\Controller\TemplateController::success
 admin_index:
     path: /admin/index
     controller: App\Controller\Admin\AdminController::index

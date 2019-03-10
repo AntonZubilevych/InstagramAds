@@ -12,10 +12,23 @@ namespace App\DTO;
 use App\Entity\Product;
 use App\Entity\Status;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 class FullOrderDTO
 {
+    /**
+     * @Assert\NotBlank()
+     */
     private $name;
+    /**
+     *
+     * @Assert\NotBlank()
+     */
     private $description;
+    /**
+     *
+     * @Assert\NotBlank()
+     */
     private $amount;
     private $product;
     private $status;

@@ -18,6 +18,8 @@ class TemplateMapper
     {
         $dto = new TemplateDTO();
         $dto->setTitle($template->getTitle());
+        $dto->setPercent($template->getPercent());
+        $dto->setMotto($template->getMotto());
         return $dto;
     }
 }

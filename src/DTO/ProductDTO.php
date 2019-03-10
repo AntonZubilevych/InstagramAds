@@ -8,12 +8,24 @@
 
 namespace App\DTO;
 
+use Symfony\Component\Validator\Constraints as Assert;
 
 class ProductDTO
 {
+    /**
+     * @Assert\NotBlank()
+     */
     private $name;
+    /**
+     * @Assert\Type(type="integer")
+     * @Assert\NotBlank()
+     */
     private $amount;
     private $description;
+    /**
+     * @Assert\Type(type="integer")
+     * @Assert\NotBlank()
+     */
     private $price;
     private $pixel;
 
@@ -26,6 +38,9 @@ class ProductDTO
     }
 
     /**
+     *
+     *
+     *
      * @param mixed $pixel
      */
     public function setPixel($pixel): void
@@ -42,6 +57,7 @@ class ProductDTO
     }
 
     /**
+     *
      * @param mixed $name
      */
     public function setName(string $name): void
@@ -82,6 +98,7 @@ class ProductDTO
     }
 
     /**
+     *
      * @return mixed
      */
     public function getPrice():?int

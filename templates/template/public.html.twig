@@ -8,11 +8,11 @@
         <h1><b>{{ template.product.name }}</b><br>{{ template.title }}</h1>
 
         <div class="section block-1" style="background: rgba(0, 0, 0, 0) url({{ asset('uploads/landing/' ~ template.topImg) }}) no-repeat scroll center 0px;!important;background-size: 100%;)">
-            <div class="sale">скидка <br><span>-53%</span></div>
+            <div class="sale">скидка <br><span>-{{ template.percent }}%</span></div>
             <div class="price clearfix">
                 <div class="old">
                     Старая цена<br>
-                    <s><span class="price_land_s2">{{ template.product.price * 1.53 }}</span> <span class="price_land_curr">грн.</span></s>
+                    <s><span class="price_land_s2">{{ template.product.price * ((template.percent/100)+1) }}</span> <span class="price_land_curr">грн.</span></s>
                 </div>
                 <div class="new">
                     Новая цена<br>
@@ -77,13 +77,13 @@
 
         <div class="section block9" >
             <h2><b>{{ template.product.name }}</b></h2>
-            <p class="sale center">Со скидкой 53%</p>
+            <p class="sale center">Со скидкой {{ template.percent }}%</p>
 
             <div class="section container" style="background: rgba(0, 0, 0, 0) url({{ asset('uploads/landing/' ~ template.bottomBackground) }})  scroll center 0px;!important;background-size: 100%;">
                 <div class="price clearfix" id="form">
                     <div class="old">
                         Старая цена:<br>
-                        <s><span class="price_land_s2">{{ template.product.price * 1.53 }}</span> <span class="price_land_curr">грн.</span></s>
+                        <s><span class="price_land_s2">{{ template.product.price * ((template.percent/100)+1) }}</span> <span class="price_land_curr">грн.</span></s>
                     </div>
                     <div class="new">
                         Новая цена:<br>

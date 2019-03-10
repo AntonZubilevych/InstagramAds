@@ -111,6 +111,11 @@ class Template
      */
     private $infos;
 
+    /**
+     * @ORM\Column(type="integer" ,nullable=true)
+     */
+    private $percent;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -297,6 +302,18 @@ class Template
                 $info->setTemplate(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPercent(): ?int
+    {
+        return $this->percent;
+    }
+
+    public function setPercent(int $percent): self
+    {
+        $this->percent = $percent;
 
         return $this;
     }

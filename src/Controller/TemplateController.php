@@ -16,11 +16,17 @@ class TemplateController extends AbstractController
 
         if($request->request->get('name')){
             $builder->setFromLanding($request->request->get('name'),$request->request->get('phone'),$template);
+            return $this->redirectToRoute('app_success');
         }
 
 
         return $this->render('template/public.html.twig', [
             'template' => $template
         ]);
+    }
+
+    public function success()
+    {
+        return $this->render('template/success.html.twig');
     }
 }
