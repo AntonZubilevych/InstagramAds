@@ -42,12 +42,12 @@ class Product
     private $price;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Order", mappedBy="product")
+     * @ORM\OneToMany(targetEntity="App\Entity\Order", mappedBy="product" ,cascade={"remove"})
      */
     private $orders;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Template", mappedBy="product")
+     * @ORM\OneToMany(targetEntity="App\Entity\Template", mappedBy="product" , ,cascade={"remove"})
      */
     private $templates;
 

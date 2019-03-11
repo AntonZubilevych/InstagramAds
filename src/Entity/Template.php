@@ -107,7 +107,7 @@ class Template
     private $motto;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Info", mappedBy="template")
+     * @ORM\OneToMany(targetEntity="App\Entity\Info", mappedBy="template" , cascade={"remove"})
      */
     private $infos;
 
