@@ -47,7 +47,7 @@ class Product
     private $orders;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Template", mappedBy="product" , ,cascade={"remove"})
+     * @ORM\OneToMany(targetEntity="App\Entity\Template", mappedBy="product" , cascade={"remove"})
      */
     private $templates;
 
