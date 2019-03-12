@@ -12,6 +12,12 @@
                         <h4 class="header-title">Own Orders</h4>
                         <div class="single-table">
                             <div class="table-responsive">
+                                {{ form_start(form) }}
+                                {{ form_widget(form.status,
+                                    {'attr': {'class': "form-control", 'style': 'width:40%;margin-bottom:10px' }}) }}
+                                {{ form_widget(form.phone,
+                                    {'attr': {'class': "form-control", 'style': 'width:40%;margin-bottom:10px' }}) }}
+                                {{ form_end(form) }}
                                 <table class="table text-center">
                                     <thead class="text-uppercase bg-success">
                                     <tr class="text-white">

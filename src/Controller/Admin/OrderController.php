@@ -7,6 +7,7 @@ namespace App\Controller\Admin;
 use App\Entity\Order;
 use App\Entity\Product;
 use App\Entity\Status;
+use App\Form\OrderFilterFormType;
 use App\Form\OrderType;
 use App\Form\StatusType;
 use App\Repository\OrderRepository;
@@ -30,10 +31,21 @@ class OrderController extends AbstractController
         $this->repository = $repository;
     }
 
-    public function index()
+    public function index(Request $request)
     {
+        $form =  $this->createForm(OrderFilterFormType::class);
+        $form->handleRequest($request);
+        $dto = null;
+
+        if($form->isSubmitted() && $form->isValid()){
+            $dto =  $form->getData();
+        }
+
+
+
         return $this->render('order/index.html.twig', [
-            'orders' =>  $this->repository->findAllJoined(),
+            'orders' =>  $this->repository->findAllJoined($dto),
+            'form' => $form->createView()
         ]);
     }
 

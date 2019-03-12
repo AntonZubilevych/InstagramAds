@@ -2,7 +2,9 @@
 
 namespace App\Repository;
 
+use App\DTO\FilterOrder;
 use App\Entity\Order;
+use App\Entity\Status;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -19,21 +21,35 @@ class OrderRepository extends ServiceEntityRepository
         parent::__construct($registry, Order::class);
     }
 
-    public function findAllJoined()
+    public function findAllJoined(FilterOrder $filterOrder = null)
     {
 
-        return $this->createQueryBuilder('o')
+        $query =  $this->createQueryBuilder('o')
             ->leftJoin('o.status', 's')
             ->leftJoin('o.product', 'p')
             ->leftJoin('o.client', 'c')
             ->addSelect('p')
             ->addSelect('s')
             ->addSelect('c')
-            ->orderBy('o.updatedAt', 'DESC')
-            ->getQuery()
-            ->getResult()
-            ;
+            ->orderBy('o.updatedAt', 'DESC');
+
+        if($filterOrder && $filterOrder->getStatus()){
+            $query
+                ->andWhere('o.status = :val' )
+                ->setParameter('val', $filterOrder->getStatus());
+        }
+
+        if($filterOrder && $filterOrder->getPhone()){
+            $query
+                ->andWhere('c.phone Like :phone')
+                ->setParameter('phone', '%' . $filterOrder->getPhone() . '%');
+        }
+
+
+        return $query->getQuery()->getResult();
+
     }
+
 
     // /**
     //  * @return Order[] Returns an array of Order objects
