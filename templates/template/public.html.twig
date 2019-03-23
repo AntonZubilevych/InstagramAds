@@ -12,7 +12,7 @@
             <div class="price clearfix">
                 <div class="old">
                     Старая цена<br>
-                    <s><span class="price_land_s2">{{ template.product.price * ((template.percent/100)+1) }}</span> <span class="price_land_curr">грн.</span></s>
+                    <s><span class="price_land_s2">{{ template.product.price * ((100/template.percent)) }}</span> <span class="price_land_curr">грн.</span></s>
                 </div>
                 <div class="new">
                     Новая цена<br>
@@ -27,7 +27,7 @@
                 {% for description in template.descriptions %}
                 <li>
                     <h4>{{ description.title | upper }}</h4>
-                    <p>{{ description.text }}</p>
+                    <p>{{ description.text | lower }}</p>
                 </li>
                 {% endfor %}
             </ul>
