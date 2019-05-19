@@ -89,7 +89,7 @@
                 <div class="price clearfix" id="form">
                     <div class="old">
                         Старая цена:<br>
-                        <s><span class="price_land_s2">{{ template.product.price * ((template.percent/100)+1) }}</span> <span class="price_land_curr">грн.</span></s>
+                        <s><span class="price_land_s2">{{ template.product.price * ((100/template.percent)) }}</span> <span class="price_land_curr">грн.</span></s>
                     </div>
                     <div class="new">
                         Новая цена:<br>
