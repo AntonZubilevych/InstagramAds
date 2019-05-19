@@ -1,5 +1,11 @@
 {% extends 'landing.html.twig' %}
 
+{% block seotags %}
+    <title>{{ template.title }}</title>
+    <meta name="keywords" content=" купить Украина отзывы">
+    <meta name="description" content="{{ template.motto }}">
+{% endblock %}
+
 {% block pixel %}
     {{ template.product.pixel | raw }}
 {% endblock %}
